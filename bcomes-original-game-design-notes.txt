@@ -1,0 +1,44 @@
+-= non-art-asset observations (design notes) =-
+
+1 second jump (from pressing W/Up Arrow to hitting ground, assume .5 seconds is peak of jump)
+
+takes nearly 10 seconds from leftmost wall to reach windmill door when constantly pressing D/Right Arrow with all flies killed and facing left
+
+a hit counts when the sword moves in and then out of an enemy's hitbox
+
+dummy takes 10 hits
+dummy does not damage player upon contact
+
+small fly takes 3 hits
+big fly takes 10 hits
+fly wings seem to be made of semi-transparent circle sprites (stretched to be oval) that change vertical size to give illusion of wings
+
+player has 10 HP, any hit from any fly deals 1 damage
+
+all entities (player, dummy, fly) have edge-perfect hitbox
+
+all background sprites (trees, flowers, mountains, clouds, sky, foreground bushes) do not have a parallax effect (for some reason my my copy of the game does not, others do have it)
+
+camera not centered on player, smoothly shifts based on last movement key pressed (A = camera shows more to the left of player, W = vice versa)
+
+player sprite direction based on mouse x position (greater than player x, face right, less than player x, face left)
+
+flies have small green particle effect
+fly entity used on title is same one from gameplay
+when a fly dies, one-time white particle effect plays (a sort of "poof" effect)
+
+seems to be a 1 second delay when dying (game over screen) or when winning (end screen)? could be hard drive / load times and not code/gameplay related
+
+legs of player seems to be separate sprites
+	walking animation seems to move them horizontally in a sine wave pattern (cycles)
+
+game hooks into & responds mouse position even when window is not active
+
+mouse is not locked to game window
+
+health bar is never seen fully grayed out/dead (when it hits 0, still shows 1 while game over "level" loads)
+
+-= speculation on scripts =-
+
+basic health script attached to entity with editor-set (not hardcoded) start/max value
+
