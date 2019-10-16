@@ -1,4 +1,4 @@
 Evan Waggoner is Game director and Audio leadc becuase of Previous experience in game projects 
-Brian Come is Game designer and Tech lead becuase he has the most experience programming on the team. 
+Brian Comes is Game Designer and Tech Lead because he has prior experience with game design (DigiPen ProjectFUN camps, iD Tech Academy, Source Engine mapping) and is proficient with consistent organization of files and usage of Git/GitHub. 
 Hugo  is the producer becuase he is good at organizing. 
 Sera art lead because she has prior experience in art
