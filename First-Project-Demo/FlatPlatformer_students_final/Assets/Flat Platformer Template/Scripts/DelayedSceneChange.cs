@@ -3,7 +3,6 @@
 * Description: Add this to objects you need a scene changing function for with a delay
 */
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,4 +12,17 @@ public class DelayedSceneChange : MonoBehaviour
     //name of level to load
     public string NextScene = "GameOver";
     
+    public void ChangeScene()
+    {
+        print("Started");
+        StartCoroutine(DelayedChange());
+    }
+
+    private IEnumerator DelayedChange()
+    {
+        print("before delay");
+        yield return new WaitForSeconds(Delay);
+        print("after");
+        SceneManager.LoadScene(NextScene);
+    }
 }

@@ -2,9 +2,6 @@
  * Date: 10/11/19
  * Description: Add to healthbar and set target to make health
  */
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthBar : MonoBehaviour
@@ -15,4 +12,13 @@ public class HealthBar : MonoBehaviour
 
     RectTransform myRT;
 
+    public void HealthUpdate()
+    {
+        myRT.sizeDelta = new Vector2((float)Target.CurrentHealth / (float)Target.MaxHealth * MaxSize, myRT.sizeDelta.y);
+    }
+
+    private void Start()
+    {
+        myRT = GetComponent<RectTransform>();
+    }
 }

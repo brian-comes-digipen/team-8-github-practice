@@ -2,8 +2,6 @@
  * Date: 10/9/19
  * Description: Add to objects meant to have a health.
  */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,4 +17,32 @@ public class Health : MonoBehaviour
     public UnityEvent HealFunctions;
     private bool DeathOccured = false;
     
+    public void Damage(int damage)
+    {
+        CurrentHealth -= damage;
+        if (CurrentHealth <= 0 && !DeathOccured)
+        {
+            CurrentHealth = 0;
+            DeathFunctions.Invoke();
+            DeathOccured = true;
+            if (DestroyAtZero)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            DamageFunctions.Invoke();
+        }
+    }
+
+    public void Heal(int health)
+    {
+        CurrentHealth += health;
+        if (CurrentHealth > MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
+        }
+        HealFunctions.Invoke();
+    }
 }
