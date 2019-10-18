@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class PathEnemy : MonoBehaviour
 {
-    //points are an offset from where the object starts so 0,0 is where it is in the editor
     public Vector3[] Points;
 
-    public float Speed = 5;
-    //value that we can be within to change to next destianation
+    public float Speed = 5f;
+
     public float CloseEnough = 0.5f;
 
-    private int currentDestination = 0;
+    private int currentDestination;
 
     private Rigidbody2D myRB;
 
@@ -61,8 +60,8 @@ public class PathEnemy : MonoBehaviour
 
     public void DisablePath()
     {
-        print("disable fly");
+        MonoBehaviour.print("disable fly");
         Active = false;
-        print(Active);
+        MonoBehaviour.print(Active);
     }
 }

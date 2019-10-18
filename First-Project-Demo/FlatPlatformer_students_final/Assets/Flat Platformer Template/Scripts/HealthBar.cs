@@ -8,9 +8,9 @@ public class HealthBar : MonoBehaviour
 {
     public Health Target;
 
-    public float MaxSize = 300;
+    public float MaxSize = 300f;
 
-    RectTransform myRT;
+    private RectTransform myRT;
 
     public void HealthUpdate()
     {
@@ -20,5 +20,9 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         myRT = GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
     }
 }

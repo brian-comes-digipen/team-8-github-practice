@@ -8,21 +8,29 @@ using UnityEngine.SceneManagement;
 
 public class DelayedSceneChange : MonoBehaviour
 {
-    public float Delay = 0.0f;
-    //name of level to load
+    public float Delay;
+
     public string NextScene = "GameOver";
-    
+
     public void ChangeScene()
     {
-        print("Started");
+        MonoBehaviour.print("Started");
         StartCoroutine(DelayedChange());
     }
 
     private IEnumerator DelayedChange()
     {
-        print("before delay");
+        MonoBehaviour.print("before delay");
         yield return new WaitForSeconds(Delay);
-        print("after");
+        MonoBehaviour.print("after");
         SceneManager.LoadScene(NextScene);
+    }
+
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
     }
 }

@@ -4,8 +4,8 @@
 */
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ChangeLevelOnCollide : MonoBehaviour
 {
@@ -28,5 +28,13 @@ public class ChangeLevelOnCollide : MonoBehaviour
     {
         yield return new WaitForSeconds(changeDelay);
         SceneManager.LoadScene(NextScene);
+    }
+
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
     }
 }

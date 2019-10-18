@@ -4,14 +4,20 @@
  */
 using UnityEngine;
 
-public class CameraMove : MonoBehaviour {
+public class CameraMove : MonoBehaviour
+{
     public float damping = 1.5f;
+
     public Transform _target;
+
     public Vector2 offset = new Vector2(2f, 1f);
 
     private bool faceLeft;
+
     private int lastX;
-    private readonly float dynamicSpeed = 0;
+
+    private readonly float dynamicSpeed;
+
     private Camera _cam;
 
     private void Start()
