@@ -4,9 +4,13 @@
  */
 using UnityEngine;
 
-public class WindMill : MonoBehaviour {
+public class WindMill : MonoBehaviour
+{
     public float _Speed;
-    private float _currDist, _dist;
+
+    private float _currDist;
+
+    private float _dist;
 
     private void Update()
     {

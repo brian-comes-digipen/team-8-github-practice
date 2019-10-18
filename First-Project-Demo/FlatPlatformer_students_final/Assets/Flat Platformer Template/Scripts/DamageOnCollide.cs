@@ -5,14 +5,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class DamageOnCollide : MonoBehaviour
 {
-    readonly int DamageAmount = 10;
-    readonly bool DestroyOnCollide = false;
-    //functions to run when damage is caused
+    private readonly int DamageAmount = 10;
+
+    private readonly bool DestroyOnCollide;
+
     public UnityEvent DamageFunctions;
-    //functions to run when object is set to destroy itself
+
     public UnityEvent DestroyFunctions;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -26,7 +26,7 @@ public class DamageOnCollide : MonoBehaviour
         if (DestroyOnCollide)
         {
             DestroyFunctions.Invoke();
-            Destroy(gameObject);
+            Destroy(base.gameObject);
         }
     }
 
@@ -41,7 +41,15 @@ public class DamageOnCollide : MonoBehaviour
         if (DestroyOnCollide)
         {
             DestroyFunctions.Invoke();
-            Destroy(gameObject);
+            Destroy(base.gameObject);
         }
+    }
+
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
     }
 }

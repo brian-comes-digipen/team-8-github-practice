@@ -7,8 +7,17 @@ using UnityEngine;
 public class CreateEventFunction : MonoBehaviour
 {
     public GameObject ObjectToMake;
+
     public void CreateObject()
     {
         Instantiate(ObjectToMake, transform.position, transform.rotation);
+    }
+
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
     }
 }

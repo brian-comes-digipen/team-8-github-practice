@@ -8,15 +8,23 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     public int MaxHealth = 100;
+
     public int CurrentHealth = 100;
 
     public bool DestroyAtZero = true;
 
     public UnityEvent DamageFunctions;
+
     public UnityEvent DeathFunctions;
+
     public UnityEvent HealFunctions;
-    private bool DeathOccured = false;
-    
+
+    private bool DeathOccured;
+
+    private void Start()
+    {
+    }
+
     public void Damage(int damage)
     {
         CurrentHealth -= damage;
@@ -27,7 +35,7 @@ public class Health : MonoBehaviour
             DeathOccured = true;
             if (DestroyAtZero)
             {
-                Destroy(gameObject);
+                Destroy(base.gameObject);
             }
         }
         else
@@ -44,5 +52,9 @@ public class Health : MonoBehaviour
             CurrentHealth = MaxHealth;
         }
         HealFunctions.Invoke();
+    }
+
+    private void Update()
+    {
     }
 }

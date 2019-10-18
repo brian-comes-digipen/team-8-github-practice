@@ -7,23 +7,29 @@ using UnityEngine;
 
 public class FlyDeath : MonoBehaviour
 {
-    public float DeathDelay = 1;
-    Animator myAnimator;
+    public float DeathDelay = 1f;
+
+    private Animator myAnimator;
+
     public void OnDeath()
     {
         myAnimator.SetBool("Dead", value: true);
-        Destroy(gameObject.GetComponent<DamageOnCollide>());
+        Destroy(base.gameObject.GetComponent<DamageOnCollide>());
         StartCoroutine(DelayedDestroy());
     }
 
     private IEnumerator DelayedDestroy()
     {
         yield return new WaitForSeconds(DeathDelay);
-        Destroy(gameObject);
+        Destroy(base.gameObject);
     }
 
     private void Start()
     {
         myAnimator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
     }
 }

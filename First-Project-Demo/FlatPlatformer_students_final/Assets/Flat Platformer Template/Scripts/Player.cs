@@ -6,30 +6,54 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour {
-
+public class Player : MonoBehaviour
+{
     public float WalkSpeed;
+
     public float JumpForce;
-    public AnimationClip _walk, _jump;
+
+    public AnimationClip _walk;
+
+    public AnimationClip _jump;
+
     public Animation _Legs;
-    public Transform _Blade, _GroundCast;
+
+    public Transform _Blade;
+
+    public Transform _GroundCast;
+
     public Camera cam;
+
     public bool mirror;
+
     public AudioClip sfxJump;
+
     public AudioClip sfxWalk;
 
+    private bool _canJump;
 
-    private bool _canJump, _canWalk;
+    private bool _canWalk;
+
     private readonly bool _isWalk;
+
     private bool _isJump;
-    private float rot, _startScale;
+
+    private float rot;
+
+    private float _startScale;
+
     private Rigidbody2D rig;
+
     private Vector2 _inputAxis;
+
     private RaycastHit2D _hit;
+
     private LayerMask _layerMask;
+
     private AudioSource audioSource;
 
     public bool Active = true;
+
     public void DisablePlayer()
     {
         Active = false;
@@ -54,7 +78,7 @@ public class Player : MonoBehaviour {
         {
             return;
         }
-        if ((_hit = Physics2D.Linecast(new Vector2(_GroundCast.position.x, _GroundCast.position.y + 0.2f), _GroundCast.position, _layerMask)))
+        if ((bool)(_hit = Physics2D.Linecast(new Vector2(_GroundCast.position.x, _GroundCast.position.y + 0.2f), _GroundCast.position, _layerMask)))
         {
             if (!_hit.transform.CompareTag("Player"))
             {
@@ -136,6 +160,6 @@ public class Player : MonoBehaviour {
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, _GroundCast.position);
+        Gizmos.DrawLine(base.transform.position, _GroundCast.position);
     }
 }
